@@ -28,3 +28,7 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
+
+Route::post('/contact/submit', function (){
+    dd (Request::all());
+})->name("submit");
