@@ -6,6 +6,9 @@
 
 @section("content")
     <h1>Страница Contact</h1>
+    <form action="/contact/submit" method="post">
+        
+    </form>
 @endsection
 
 @section("aside")

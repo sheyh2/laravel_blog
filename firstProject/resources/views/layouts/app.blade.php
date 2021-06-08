@@ -8,7 +8,24 @@
     <title>@yield("title-block")</title>
 </head>
 <body>
-    @yield("content")
-    @include('include.aside')
+    <div class="container py-3">
+    @include("include.header")
+
+    @if(Request::is('/'))
+        @include("include.hero")
+    @endif
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                @yield("content")
+            </div>
+            <div class="col-4">
+                @include('include.aside')
+            </div>
+        </div>
+    </div>
+
+    @include("include.footer")
 </body>
 </html>
