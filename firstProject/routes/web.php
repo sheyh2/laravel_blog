@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\MainController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Routing\Router;
 
 /*
@@ -29,6 +29,4 @@ Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
 
-Route::post('/contact/submit', function (){
-    dd (Request::all());
-})->name("submit");
+Route::post('/contact/submit', [ContactController::class, "submit"])->name("submit");
