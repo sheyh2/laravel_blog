@@ -30,3 +30,8 @@ Route::get('/contact', function () {
 })->name("contact");
 
 Route::post('/contact/submit', [ContactController::class, "submit"])->name("submit");
+
+
+Route::get('test', function(){
+    phpinfo();
+});
