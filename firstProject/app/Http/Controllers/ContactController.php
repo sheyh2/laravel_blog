@@ -7,7 +7,7 @@ use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 
 class ContactController extends Controller {
-    public function submit(ContactRequest $req) {
+    public function successSend(ContactRequest $req) {
 
         $contact = new Contact();
 
@@ -26,5 +26,15 @@ class ContactController extends Controller {
         //     "subject" => "required|min:5|max:50",
         //     "message" => "required|min:50|max:500"
         // ]);
+    }
+    public function AllMessages() {
+        $contact = new Contact;
+        // $contact->orderBy("id", "asc")->skip(1)->take(2)->get()]    // $contact->inRandomOrder()->get()
+        // where("subject", "<>", "Теги в html")->get()
+        return view("messages", ["data" => $contact->all()]);
+    }
+    public function ReadMore($id) {
+        $contact = new Contact;
+        return view("read-more", ["data" => $contact->find($id)]);
     }
 }

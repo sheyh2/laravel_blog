@@ -17,7 +17,7 @@
 
     <div class="container md-5">
 
-        @include('include.messages')
+        @include('include.successSend')
 
         <div class="row">
             <div class="col-8">

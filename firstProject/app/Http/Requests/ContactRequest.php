@@ -24,7 +24,7 @@ class ContactRequest extends FormRequest {
                 "name" => "required",
                 "email" => "required|email",
                 "subject" => "required|min:5|max:50",
-                "message" => "required|min:50|max:500"
+                "message" => "required|min:10|max:500"
             ];
     }
     public function attributes(){

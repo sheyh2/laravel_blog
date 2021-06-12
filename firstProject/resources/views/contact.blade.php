@@ -9,7 +9,7 @@
 
     
 
-    <form action="{{@route('submit')}}" method="post">
+    <form action="{{@route('successSend')}}" method="post">
         @csrf
 
         <div class="form-group">
