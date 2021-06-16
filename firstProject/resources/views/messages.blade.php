@@ -9,9 +9,9 @@
     @foreach($data as $el)
         <div class="alert alert-info">
             <h3>{{ $el->subject }}</h3>
-            <p>{{ $el->email }}</p>
+            <p>{{ $el->email }} - {{ $el->name }}</p>
             <p><small>{{ $el->created_at }}</small></p>
-            <a href="{{ route('messages' , [$el->id]) }}"><button class="btn btn-warning">Читать больше</button></a>
+            <a href="{{ route('more' , $el->id) }}"><button class="btn btn-warning">Читать больше</button></a>
         </div>
     @endforeach
 @endsection

@@ -23,10 +23,26 @@ Route::get('/contact', function () {
     return view('contact');
 })->name("contact");  
 
-Route::get('/contact/all', 
-[ContactController::class, 'AllMessages']
-)->name("messages");
+Route::get('/contact/all', [ContactController::class, 'allMessages'])->name("messages");
 //Конец
+
+//buttom оброботка
+Route::get('/contact/all/{id}', 
+[ContactController::class, 'ReadMore']
+)->name("more");
+
+Route::get('/contact/all/{id}/update', 
+[ContactController::class, 'ContactMessages']
+)->name("contact-message");
+
+Route::post('/contact/all/{id}/update', 
+[ContactController::class, 'UpdateMessage']
+)->name("update-message");
+
+Route::get('/contact/all/{id}/delete', 
+[ContactController::class, 'deleteMessage']
+)->name("delete-message");
+//конец
 
 // Обработка формы "Отправить"
 Route::post('/contact/successSend', 

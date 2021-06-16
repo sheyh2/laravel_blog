@@ -27,7 +27,7 @@ class ContactController extends Controller {
         //     "message" => "required|min:50|max:500"
         // ]);
     }
-    public function AllMessages() {
+    public function allMessages() {
         $contact = new Contact;
         // $contact->orderBy("id", "asc")->skip(1)->take(2)->get()]    // $contact->inRandomOrder()->get()
         // where("subject", "<>", "Теги в html")->get()
@@ -36,5 +36,25 @@ class ContactController extends Controller {
     public function ReadMore($id) {
         $contact = new Contact;
         return view("read-more", ["data" => $contact->find($id)]);
+    }
+    public function ContactMessages($id) {
+        $contact = new Contact;
+        return view("contact-message", ["data" => $contact->find($id)]);
+    }
+    public function UpdateMessage($id, ContactRequest $req) {
+
+        $contact = Contact::find($id);
+
+        $contact->name = $req->input("name");
+        $contact->email = $req->input("email");
+        $contact->subject = $req->input("subject");
+        $contact->message = $req->input("message");
+
+        $contact->save();
+        return redirect()->route("messages")->with("success", "Сообщение обнавлён успешно");
+    }
+    public function deleteMessage($id) {
+        Contact::find($id)->delete();
+        return redirect()->route("messages")->with("success", "Сообщение удалено успешно");
     }
 }
